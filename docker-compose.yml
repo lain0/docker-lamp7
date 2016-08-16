@@ -9,6 +9,8 @@ services:
       - db:/var/lib/mysql
     ports:
       - '3306:3306'
+    restart: always
+    
   php:
     build: ./php
     ports:
@@ -17,6 +19,7 @@ services:
       - ./html:/var/www/html
     depends_on:
       - mysql
+    restart: always
 
 volumes:
   db:
